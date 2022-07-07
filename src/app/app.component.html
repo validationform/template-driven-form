@@ -1,51 +1,66 @@
 <h1>Template Driven Form validation</h1>
 <form #loginForm="ngForm" (ngSubmit)="loginUser(loginForm.value)">
+  <input
+    type="text"
+    required
+    #name="ngModel"
+    pattern="[a-zA-Z]+$"
+    name="name"
+    placeholder="Enter the name"
+    ngModel
+  />
+  <br />
+  <span *ngIf="name.invalid && name.touched" style="color: red">
+    Please Enter valid name</span
+  >
+  <br /><br />
 
-  <input type="text" 
-         required 
-         #name="ngModel" 
-         pattern="[a-zA-Z]+$" 
-         name="name" 
-         placeholder="Enter the name" ngModel/>
+  <input
+    type="text"
+    name="phno"
+    required
+    #phno="ngModel"
+    pattern="[0-9]{10}"
+    maxlength="10"
+    placeholder="Enter Phone the number"
+    ngModel
+  />
   <br />
-  <span *ngIf="name.invalid && name.touched" 
-         style="color:red;"> Please Enter valid name</span>
+  <span *ngIf="phno.invalid && phno.touched" style="color: red">
+    Please Enter valid phone</span
+  >
   <br /><br />
-  
-  <input type="text" 
-         name="phno" 
-         required 
-         #phno="ngModel" 
-         pattern="[0-9]{10}"
-         maxlength="10"
-         placeholder="Enter Phone the number" ngModel/>
+
+  <input
+    type="text"
+    name="email"
+    required
+    #email="ngModel"
+    email
+    placeholder="Enter the Email"
+    ngModel
+  />
   <br />
-  <span *ngIf="phno.invalid && phno.touched" 
-         style="color:red;"> Please Enter valid phone</span>
-  <br /><br />
- 
-  <input type="text" 
-         name="email" 
-         required 
-         #email="ngModel" 
-         email
-         placeholder="Enter the Email" ngModel/>
-  <br />
-  <span *ngIf="email.invalid && email.touched" 
-        style="color:red;"> Please Enter valid email</span>
+  <span *ngIf="email.invalid && email.touched" style="color: red">
+    Please Enter valid email</span
+  >
   <br />
   <br />
-  
-  <input type="text" 
-         name="age" 
-         required 
-         #age="ngModel" 
-         pattern="[0-9]+$"
-         maxlength="2"
-         placeholder="Enter the Age" ngModel/>
+
+  <input
+    type="text"
+    name="age"
+    required
+    #age="ngModel"
+    pattern="[0-9]+$"
+    maxlength="2"
+    placeholder="Enter the Age"
+    ngModel
+  />
   <br />
-  <span *ngIf="age.invalid && age.touched" 
-         style="color:red;">Please Enter valid Age</span>
+  <span *ngIf="age.invalid && age.touched" style="color: red"
+    >Please Enter valid Age</span
+  >
   <br />
   <br />
   <button [disabled]="loginForm.invalid">Submit</button>
